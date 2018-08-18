@@ -37,6 +37,25 @@ previous_node.next=new_node;
 
 }
 
+public void insertAtEnd(int new_data)
+{
+Node new_node=new Node(new_data);
+Node n=head,temp=null;
+
+if(head==null)
+{
+head=new Node(new_data);
+return;
+}
+new_node.next=null;
+
+while(n.next!=null)
+n=n.next;
+n.next=new_node;
+
+
+}
+
 public void printList()
 {
 Node n=head;
@@ -67,12 +86,23 @@ second.next=third;
 //llist.insertAtBeginning(4);
 //llist.printList();
 
-System.out.println("Link list after inserting node after a specific node");
+//System.out.println("Link list after inserting node after a specific node");
+//llist.printList();
+
+//System.out.println("Link list before inserting node after a specific node");
+//llist.insertAfter(second,4);
+//llist.printList();
+
+
+System.out.println("Link list before inserting node at End");
 llist.printList();
 
-System.out.println("Link list before inserting node after a specific node");
-llist.insertAfter(second,4);
+System.out.println("Link list after inserting node at End");
+llist.insertAtEnd(7);
 llist.printList();
+
+
+
 }
 
 }
