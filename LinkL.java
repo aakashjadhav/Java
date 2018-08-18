@@ -14,6 +14,15 @@ Node head;
 		}
 	}
 
+public void insertAtBeginning(int new_data)//insert data at beginning
+{
+Node new_node=new Node(new_data);
+
+new_node.next=head;
+head=new_node;
+}
+
+
 public void printList()
 {
 Node n=head;
@@ -37,8 +46,13 @@ Node third=new Node(3);
 llist.head.next=second;
 second.next=third;
 
-
+System.out.println("Link list before Inserting at Beginning");
 llist.printList();
+
+System.out.println("Link list after Inserting at Beginning");
+llist.insertAtBeginning(4);
+llist.printList();
+
 }
 
 }
