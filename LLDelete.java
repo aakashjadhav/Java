@@ -12,11 +12,11 @@ Node(int d)
 data=d;
 next=null;
 }
+
 }
 
-public void deleteNode(int key)
+public void deleteKey(int key)
 {
-
 Node n=head,prev=null;
 
 if(n!=null && n.data==key)
@@ -34,38 +34,64 @@ n=n.next;
 if(n==null)return;
 
 prev.next=n.next;
-
 }
 
-
-public void printList()
+public void printLL()
 {
 Node n=head;
+if(n==null)
+{
+System.out.println("Link list is empty");}
 
 while(n!=null)
 {
-System.out.println("Node is "+n.data);
+System.out.println("Data is"+n.data);
 n=n.next;
 }
 
 }
 
+public void deletePos(int pos)
+{
+
+if(head==null)
+return;
+
+Node n=head; 
+
+if(pos==0)
+{
+head=n.next;
+return;
+}
+
+for(int i=0;n!=null && i<pos-1;i++)
+n=n.next;
+
+if(n==null || n.next==null)return;
+
+Node new_node=n.next.next;
+
+n.next=new_node;
+
+}
+
+
 public static void main(String arg[])
 {
-LLDelete lld=new LLDelete();
-
-lld.head=new Node(1);
+LLDelete ll=new LLDelete();
+ll.head=new Node(1);
 Node second=new Node(2);
 Node third=new Node(3);
 
-lld.head.next=second;
+ll.head.next=second;
 second.next=third;
 
-lld.printList();
-System.out.println("After deleting a node by Its key value");
-lld.deleteNode(2);
-lld.printList();
+ll.printLL();
+ll.deleteKey(2);
+ll.printLL();
+ll.deletePos(0);
+ll.printLL();
 }
 
 }
-
